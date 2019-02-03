@@ -13,7 +13,7 @@ django-heroku = "*"
 pillow = "*"
 django-filter = "*"
 django-crispy-forms = "*"
-setup-py = "*"
+django-contrib-commments = "*"
 
 [requires]
 python_version = "3.6"

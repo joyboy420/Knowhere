@@ -1,5 +1,6 @@
 {% extends 'categories/base.html' %}
 {% load crispy_forms_tags %}
+{% load comments %}
 {% block content %}
 <h1>if you are owner you can update or delete this </h1>
 <a href ="{% url 'company_update' company.category company.id %}"><button>update</button></a>
@@ -89,4 +90,37 @@
 	</a>
 </button>
  <br>
+
+ {% get_comment_count for categories.company object.pk as comment_count %}
+<p>{{ comment_count }} comments have been posted.</p>
+
+{% comment %} {% render_comment_list for company %} {% endcomment %}
+
+{% get_comment_list for categories.company object.pk as comment_list %}
+{% for comment in comment_list %}
+<p>Posted by: {{ comment.user_name }} on {{ comment.submit_date }}</p>
+...
+<p>Comment: {{ comment.comment }}</p>
+...
+{% endfor %}
+
+{% comment %} {% render_comment_form for company %} {% endcomment %}
+
+
+{% if user.is_authenticated %}
+    {% get_comment_form for company as form %}
+    <form action="{% comment_form_target %}" method="POST">
+    {% csrf_token %}
+    {{ form.comment }}
+
+    {{ form.content_type }}
+    {{ form.object_pk }}
+    {{ form.timestamp }}
+    {{ form.security_hash }}
+    <input type="hidden" name="next" value="{% url 'aboutus' %}" />
+    <input type="submit" value="Add comment" id="id_submit" />
+    </form>
+{% else %}
+    <p>Please <a href="{% url 'login' %}">log in</a> to leave a comment.</p>
+{% endif %}
 {% endblock %}
