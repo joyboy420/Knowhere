@@ -5,6 +5,7 @@ from django.urls import reverse
 from requests import get
 import geoip2.database
 from math import sin, cos, sqrt, atan2, radians
+from geopy.geocoders import Nominatim
 # Create your models here.
 class Category(models.Model):
     name = models.CharField(max_length = 50)
@@ -58,10 +59,12 @@ class Company(models.Model):
         return(distance)
     
     def get_city(self):
-        ip = get('https://api.ipify.org').text
-        reader = geoip2.database.Reader('categories/GeoLite2-City.mmdb')
-        response = reader.city(ip)
-        city = response.city.name
+        
+        geolocator = Nominatim(user_agent="specify_your_app_name_here")
+        comp_lat = self.latitude
+        comp_lon = self.longitude
+        location = geolocator.reverse("" + str(comp_lat) + ","+ str(comp_lon) + "")
+        city = location.address
         return(city)
 
 

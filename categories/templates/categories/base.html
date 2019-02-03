@@ -45,6 +45,7 @@
 	<nav class="navbar fixed-top navbar-light justify-content-between shadow p-3 mb-5 rounded">
 		<div class="container">
 		  <a href="{% url 'category_list' %}" class="navbar-brand mb-0 h1">Knowhere</a>
+			<a href="{% url 'search' %}" class="navbar-brand mb-0 h1">Search Company</a>
 			{% if user.is_authenticated %}
 			<div class="row">
 				<div class="column">
