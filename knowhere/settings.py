@@ -38,7 +38,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites',
-
     # my apps
     'users.apps.UsersConfig',
     # 'users',
@@ -48,6 +47,7 @@ INSTALLED_APPS = [
     'postman',
     'blog',
     'django_comments',
+
 ]
 
 SITE_ID = '1'
