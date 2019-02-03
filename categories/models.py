@@ -6,6 +6,7 @@ from requests import get
 import geoip2.database
 from math import sin, cos, sqrt, atan2, radians
 from geopy.geocoders import Nominatim
+from phonenumber_field.modelfields import PhoneNumberField
 # Create your models here.
 class Category(models.Model):
     name = models.CharField(max_length = 50)
@@ -24,6 +25,11 @@ class Company(models.Model):
     owner = models.ForeignKey(User, on_delete = models.CASCADE, related_name = "company_owner")
     category = models.ForeignKey(Category, on_delete = models.CASCADE)
     image = models.ImageField(upload_to='company_gallery')
+    opening_hr = models.TimeField(default = '9:00')
+    closing_hr = models.TimeField(default = '4:00')
+    email = models.EmailField()
+    #contact = models.PhoneNumberField()
+
     def __str__(self):
         return self.name
     class Meta:

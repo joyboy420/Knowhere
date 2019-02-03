@@ -10,6 +10,8 @@ class Post(models.Model):
     date_posted = models.DateTimeField(default=timezone.now)
     image = models.ImageField(upload_to='products_gallery')
     author = models.ForeignKey(User, on_delete=models.CASCADE)
+    cost = models.IntegerField()
+    company = models.CharField(max_length=100)
 
     def __str__(self):
         return self.title

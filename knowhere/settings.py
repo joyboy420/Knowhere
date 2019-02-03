@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'postman',
     'blog',
     'django_comments',
+    'phonenumber_field',
 ]
 
 SITE_ID = '1'

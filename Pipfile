@@ -17,6 +17,8 @@ django-contrib-comments = "*"
 geoip2 = "*"
 requests = "*"
 geopy = "*"
+django-phonenumber-field = "*"
+phonenumbers = "*"
 
 [requires]
-python_version = "3.7"
+python_version = "3.6"

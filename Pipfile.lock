@@ -1,11 +1,11 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "19b0825322b726505cf8ddb455769bf5f1caf4dd18fba2d97c722e08fe07fcae"
+            "sha256": "bdc56274831d4253316fc0dd371a7b3abc9353f8a2840530a00f6a436b87c741"
         },
         "pipfile-spec": 6,
         "requires": {
-            "python_version": "3.7"
+            "python_version": "3.6"
         },
         "sources": [
             {
@@ -16,6 +16,13 @@
         ]
     },
     "default": {
+        "babel": {
+            "hashes": [
+                "sha256:6778d85147d5d85345c14a26aada5e478ab04e39b078b0745ee6870c2b5cf669",
+                "sha256:8cba50f48c529ca3fa18cf81fa9403be176d374ac4d60738b839122dfaaa3d23"
+            ],
+            "version": "==2.6.0"
+        },
         "certifi": {
             "hashes": [
                 "sha256:47f9c83ef4c0c621eaef743f133f09fa8a74a9b75f037e8624f83bd1b6626cb7",
@@ -77,10 +84,16 @@
             "index": "pypi",
             "version": "==0.3.1"
         },
+        "django-phonenumber-field": {
+            "hashes": [
+                "sha256:2ae79857113b500f733885b2ebacf8d6fbf21970f2416bd4a3160ec9b91ce831"
+            ],
+            "index": "pypi",
+            "version": "==2.2.0"
+        },
         "geographiclib": {
             "hashes": [
-                "sha256:635da648fce80a57b81b28875d103dacf7deb12a3f5f7387ba7d39c51e096533",
-                "sha256:b484e07bbd40589f7cf1265417b1219b53127e5275cb49e2a4b4974573c92da9"
+                "sha256:635da648fce80a57b81b28875d103dacf7deb12a3f5f7387ba7d39c51e096533"
             ],
             "version": "==1.49"
         },
@@ -120,6 +133,14 @@
                 "sha256:df1451bcd848199905ac0de4631b3d02d6a655ad28ba5e5a4ca29a23358db712"
             ],
             "version": "==1.4.1"
+        },
+        "phonenumbers": {
+            "hashes": [
+                "sha256:127706b1743d2c0cf575be025262c9e45e687dfebd4b114ca231c9df1e713874",
+                "sha256:60a93df03db5170ae589a734f68a95c0646aa98fdf4c1591cb7c15c9da758e05"
+            ],
+            "index": "pypi",
+            "version": "==8.10.4"
         },
         "pillow": {
             "hashes": [
