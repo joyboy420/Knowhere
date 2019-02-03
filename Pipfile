@@ -13,8 +13,9 @@ django-heroku = "*"
 pillow = "*"
 django-filter = "*"
 django-crispy-forms = "*"
-django-contrib-commments = "*"
+django-contrib-comments = "*"
 geoip2 = "*"
+requests = "*"
 
 [requires]
 python_version = "3.7"

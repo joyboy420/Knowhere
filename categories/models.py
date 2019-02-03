@@ -1,6 +1,10 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.urls import reverse
+
+from requests import get
+import geoip2.database
+from math import sin, cos, sqrt, atan2, radians
 # Create your models here.
 class Category(models.Model):
     name = models.CharField(max_length = 50)
@@ -28,6 +32,30 @@ class Company(models.Model):
         return reverse('category_list')
 		#if want to redirect to its detail page then
         # return reverse('company_detail' ,kwargs = {'pk' : self.pk})
+
+    def get_distance(self):
+        ip = get('https://api.ipify.org').text
+        reader = geoip2.database.Reader('categories/GeoLite2-City.mmdb')
+        response = reader.city(ip)
+        current_lat = response.location.latitude
+        current_lon = response.location.longitude
+        comp_lat = self.latitude
+        comp_lon = self.longitude
+        R = 6373.0
+
+        lat1 = radians(current_lat)
+        lon1 = radians(current_lon)
+        lat2 = radians(comp_lat)
+        lon2 = radians(comp_lon)
+
+        dlon = lon2 - lon1
+        dlat = lat2 - lat1
+
+        a = sin(dlat / 2)**2 + cos(lat1) * cos(lat2) * sin(dlon / 2)**2
+        c = 2 * atan2(sqrt(a), sqrt(1 - a))
+
+        distance = R * c
+        return(distance)
 
 class Comment(models.Model):
     text = models.TextField(max_length = 4000)
