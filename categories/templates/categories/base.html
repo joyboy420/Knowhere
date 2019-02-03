@@ -45,23 +45,16 @@
 	<nav class="navbar fixed-top navbar-light justify-content-between shadow p-3 mb-5 rounded">
 		<div class="container">
 		  <a href="{% url 'category_list' %}" class="navbar-brand mb-0 h1">Knowhere</a>
-
-		 <div class="scrolled">
-		  <form class="form-inline">
-		    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-		    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-		  </form>
-		</div>
 			{% if user.is_authenticated %}
 			<div class="row">
 				<div class="column">
-						<a href = "/chat"><button class="btn btn-info mr-3" > Messages </button></a>
+						<a href = "/chat"><button class="btn btn-warning mr-3" > Messages </button></a>
 					</div>
 				<div class="column">
-					<a href = "{% url 'profile' %}"><button class="btn btn-primary mr-3" > Profile </button></a>
+					<a href = "{% url 'profile' %}"><button class="btn btn-success mr-3" > Profile </button></a>
 				</div>
 				<div class="column">
-					<a href = "{% url 'logout' %}"><button class="btn btn-primary"> Log Out  </button></a>
+					<a href = "{% url 'logout' %}"><button class="btn btn-danger"> Log Out  </button></a>
 				</div>
 			</div>
 
@@ -71,7 +64,7 @@
 					<a href = "{% url 'login' %}"><button class="btn btn-primary mr-3"> Log In </button></a>
 				</div>
 				<div class="column">
-					<a href = "{% url 'signup' %}"><button class="btn btn-primary"> Register </button></a>
+					<a href = "{% url 'signup' %}"><button class="btn btn-success"> Register </button></a>
 				</div>
 			</div>
 		{% endif %}
