@@ -15,7 +15,6 @@
                 <div class="jumbotron jumbotron-fluid">
                     <div class="row">
                         <div class="col-sm-4 offset-sm-4 text-center">
-                        <!-- if you want to remove the gray color then remove this jumbotron line below -->
                             <h1 class="display-4">Knowhere Login</h1>
                             <div class="info-form">
                                 <form method = "POST">
@@ -23,11 +22,10 @@
                                     {{form|crispy}}
                                     <button type ="submit" class="btn btn-info"> Sign Up </button>
                                 </form>
-                                </div>
                                 <br>
-                                <a href = "{% url 'login' %}" style="padding-left: 200px;">Already have an account?</a>
+                                <b><a href = "{% url 'login' %}" >Already have an account?</a></b>
                             </div>
-                            <br>   
+                        </div>   
                         </div>
                     </div>
                 </div>
