@@ -116,7 +116,7 @@
     {{ form.object_pk }}
     {{ form.timestamp }}
     {{ form.security_hash }}
-    <input type="hidden" name="next" value="{% url 'aboutus' %}" />
+    <input type="hidden" name="next" value="{% url 'company_detail' object.category object.pk %}" />
     <input type="submit" value="Add comment" id="id_submit" />
     </form>
 {% else %}
