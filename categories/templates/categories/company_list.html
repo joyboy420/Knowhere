@@ -1,11 +1,10 @@
 {% extends 'categories/base.html' %}
 {% load crispy_forms_tags %}
 {% block content %}
+<br><br>
 	<div class = "container">
-		Want to add a company?
-		<a href = "{% url 'company_create' %}"><button >create</button></a>
+		<a href = "{% url 'company_create' %}"><button class="btn btn-success" >Add a new new company</button></a>
 	</div>
-	
 	{% for company in companies %}
 
 		<style>
@@ -35,10 +34,6 @@
 				padding:20px;
 		}
 	</style>
-	<br>
-	<br>
-	<br>
-	<br>
 	<br>
 
 	<div class="container">
