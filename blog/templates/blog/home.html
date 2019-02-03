@@ -26,7 +26,7 @@
     
       {% for post in posts %}
           <article class="media content-section">
-            <img  src="{{post.image.url}}">
+            <img width = "200" height = "200" src="{{post.image.url}}">
             <div class="media-body">
               <div class="article-metadata">
                 <a class="mr-2" href="{% url 'user-posts' post.author.username %}">{{ post.author }}</a>
