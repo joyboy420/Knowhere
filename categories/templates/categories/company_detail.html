@@ -1,0 +1,92 @@
+{% extends 'categories/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+<h1>if you are owner you can update or delete this </h1>
+<a href ="{% url 'company_update' company.category company.id %}"><button>update</button></a>
+<a href = "{% url 'company_delete' company.category company.id %}"><button>delete</button></a>
+<center><h3>{{object.name}}</h3></center>
+		<style>
+
+			 html,body{
+				height: 90%;
+				width: 100%;
+				margin:auto;
+			}
+			#map {
+				height:90%;
+				width:50%;
+				margin:auto;
+			}
+		</style>
+
+
+	<div id="map" class="map"></div>
+		<script>
+		//var map = L.map('map').fitWorld();
+			var map = L.map('map').setView([{{object.latitude}}, {{object.longitude }}], 10);
+			L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
+			maxZoom: 18,
+			attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
+			'<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+			'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+			id: 'mapbox.streets'
+			}).addTo(map);
+			function onLocationFound(e)
+			{
+				L.marker(e.latlng).addTo(map);
+				showOnScreen(e.latlng.lat, e.latlng.lng);
+				calculateDistance(e.latlng);
+			}
+			map.on('locationfound', onLocationFound);
+			map.locate({ maxZoom: 16});
+			function showOnScreen(long, lat)
+			{
+				document.getElementById('desc').innerHTML = long + ","+ lat;
+			}
+			function calculateDistance(e)
+			{
+				distr = e.distanceTo(L.latLng({{object.latitude}},{{object.longitude}}));
+				document.getElementById('distr').innerHTML = distr;
+			}
+			var myIcon = L.icon(
+				{
+					iconUrl: 'https://image.flaticon.com/icons/svg/484/484167.svg',
+					iconSize: [38, 95],
+					iconAnchor: [22, 94],
+					popupAnchor: [-3, -76],
+					shadowUrl: '',
+					shadowSize: [68, 95],
+					shadowAnchor: [22, 94]
+				});
+			L.marker([{{object.latitude}}, {{object.longitude}}], {icon:myIcon}).addTo(map)
+		.bindPopup("{{object.name}}").openPopup();
+
+
+			map.on('click', function(e)
+			{
+				alert("Lat, Lon : " + e.latlng.lat + ", " + e.latlng.lng);
+			});
+			map.on('click', function(e)
+			{
+				var popLocation= e.latlng;
+				var popup = L.popup()
+				.setLatLng(popLocation)
+				.setContent('you clicked here')
+				.openOn(map);
+			});
+		</script>
+	<div>
+	<div id='distr' style="margin-left:200px;"></div>
+	<div id='desc' style="margin-left:200px;"></div>
+
+	</div>
+
+	<div style="margin-left:200px;">
+
+
+<button class="btn btn-dark"style="margin-left:200px;;">
+	<a href="{% url 'postman:write' object.owner %}" style="color:white;">write to {{ object.owner }}
+	</a>
+</button>
+ <br>
+{% endblock %}

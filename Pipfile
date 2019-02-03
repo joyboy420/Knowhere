@@ -1,0 +1,19 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+pylint = "*"
+
+[packages]
+django = "*"
+gunicorn = "*"
+django-heroku = "*"
+pillow = "*"
+django-filter = "*"
+django-crispy-forms = "*"
+setup-py = "*"
+
+[requires]
+python_version = "3.6"

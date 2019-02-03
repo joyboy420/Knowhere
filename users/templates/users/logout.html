@@ -1,0 +1,16 @@
+{% extends 'categories/base.html' %}
+{% block content %}
+<style type="text/css">
+        a{
+            color: #2B432E;
+          }
+          a:hover{
+            color: #586C5B;
+        }
+   
+</style>
+<div class="container" style="padding:100px;">
+	<h1>You have been logged out</h1>
+	<a href = "{% url 'login' %}">LogIn again?</a>
+</div>
+{% endblock %}

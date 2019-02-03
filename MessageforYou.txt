@@ -1,0 +1,5 @@
+first maa postman ko lagi
+->go to postman folder
+-> run 'python setup.py install '
+-> then makemigrations and migrate
+-> that's it fellas 
