@@ -16,6 +16,7 @@ django-crispy-forms = "*"
 django-contrib-comments = "*"
 geoip2 = "*"
 requests = "*"
+geopy = "*"
 
 [requires]
 python_version = "3.7"
