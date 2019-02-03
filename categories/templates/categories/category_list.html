@@ -79,17 +79,39 @@
         top: 0;
         padding: 50px;
     }
+    .parallaxfirst {
+      /* The image used */
+      background-image: url("/static/display copy.png");
+      position: relative;
+      /* Set a specific height */
+      margin-left: -20px;
+      margin-right: -15px;
+      margin-bottom: -25px;
+      min-height: 500px; 
+
+      /* Create the parallax scrolling effect */
+      background-attachment: fixed;
+      background-repeat: no-repeat;
+      background-size: cover;
+    /*end of parallex scrolling*/
+        }
+    .parallaxfirst-content{
+       color: #E6E4E4;
+        font-size:36px;
+        text-align: center;
+        top: 0;
+        padding: 50px;
+    }
 </style>
-<div class="row" id="box-search">
-    <div class="thumbnail text-center">
-        <img src="/static/display.png" width="100%" alt="My image" class="img-responsive">
-        <div class="caption">
-          
-            <button class="btn btn-success my-2 my-sm-0" type="submit">Search</button>
-          
-        </div>
-    </div>
-</div>
+<div class="parallaxfirst">
+		<div class="parallaxfirst-content">
+			<div class = "container">
+				<br>
+				<h1 style="text-align: left;">Knowhere</h1><br>
+				<a href = "{% url 'blog-home' %}"><button class="btn btn-success btn-lg active" >Go To Search</button></a>
+			</div>
+		</div>
+	</div>
 
 <br>
 <div class = "container">
@@ -147,3 +169,7 @@
 
   {% endif %}
 {% endblock %}
+Chat conversation end
+Type a message...
+
+

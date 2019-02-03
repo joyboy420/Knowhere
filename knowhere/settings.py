@@ -38,7 +38,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites',
-
     # my apps
     'users.apps.UsersConfig',
     # 'users',
@@ -48,7 +47,6 @@ INSTALLED_APPS = [
     'postman',
     'blog',
     'django_comments',
-    'phonenumber_field',
 ]
 
 SITE_ID = '1'
@@ -141,9 +139,8 @@ MEDIA_URL = '/media/'
 
 LOGIN_URL = 'login'
 LOGIN_REDIRECT_URL = 'category_list'
-
+SITE_ID = 2
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 POSTMAN_AUTO_MODERATE_AS = True
