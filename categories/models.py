@@ -54,8 +54,16 @@ class Company(models.Model):
         a = sin(dlat / 2)**2 + cos(lat1) * cos(lat2) * sin(dlon / 2)**2
         c = 2 * atan2(sqrt(a), sqrt(1 - a))
 
-        distance = R * c
+        distance = R * c* 1000
         return(distance)
+    
+    def get_city(self):
+        ip = get('https://api.ipify.org').text
+        reader = geoip2.database.Reader('categories/GeoLite2-City.mmdb')
+        response = reader.city(ip)
+        city = response.city.name
+        return(city)
+
 
 class Comment(models.Model):
     text = models.TextField(max_length = 4000)
